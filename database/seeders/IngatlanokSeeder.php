@@ -12,6 +12,11 @@ class IngatlanokSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $categories = [ 
+
+            ['question_text' => 'Kérdés szövege 1?', 'kategoria_nev' => 'garázs'], 
+
+            ['question_text' => 'Kérdés szövege 2?', 'kategoria_nev' => 'lakás'], 
+
     }
 }

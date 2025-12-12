@@ -13,7 +13,10 @@ class KategoiaController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Kategoia::with(kategoriak())->get();
+        return response()->json($categories);
+}
+
     }
 
     /**
@@ -21,7 +24,9 @@ class KategoiaController extends Controller
      */
     public function store(StoreKategoiaRequest $request)
     {
-        //
+        $validated = $request->validate([
+        'kategoria_nev' => 'required|in:'ház', 'lakás', 'építési telek', 'garázs', 'mezőgazdasági épület', 'ipari ingatlan''])
+        
     }
 
     /**

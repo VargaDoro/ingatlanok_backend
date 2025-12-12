@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Brick\Math\BigInteger;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class KategoiaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+
+            'id'=>BigInteger(),
+            'kategoria_nev' => enum(),
+
         ];
     }
 }

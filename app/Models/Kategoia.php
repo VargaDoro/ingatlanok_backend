@@ -9,4 +9,12 @@ class Kategoia extends Model
 {
     /** @use HasFactory<\Database\Factories\KategoiaFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'kategoria_nev'
+    ];
+    public function kategoriak()
+    {
+        return $this->hasMany(Kategoia::class, 'id');
+    }
 }
