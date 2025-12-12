@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('ingatlanoks', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("kategoia_id");
+            $table->text("leiras");
+            $table->timestamp("datum")->date_time(now());
+            $table->boolean("tehermentes")->default(true);
+            $table->integer("ar");
+            $table->string("kepUrl");
             $table->timestamps();
         });
     }
