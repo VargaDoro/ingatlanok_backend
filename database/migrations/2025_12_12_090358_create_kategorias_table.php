@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kategoria', function (Blueprint $table) {
+        Schema::create('kategorias', function (Blueprint $table) {
             $table->id();
             $table->enum('kategoria_nev', ['ház', 'lakás', 'építési telek', 'garázs', 'mezőgazdasági épület', 'ipari ingatlan']);
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kategoria');
+        Schema::dropIfExists('kategorias');
     }
 };

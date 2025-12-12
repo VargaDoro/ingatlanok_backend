@@ -10,7 +10,7 @@ class IngatlanokSeeder extends Seeder
     public function run(): void
     {
         // Kategóriák lekérése név szerint
-        $kategoria = DB::table('kategoria')->pluck('id', 'kategoria_nev')->toArray();
+        $kategoria = DB::table('kategorias')->pluck('id', 'kategoria_nev')->toArray();
 
         $ingatlanok = [
             [
@@ -103,6 +103,6 @@ class IngatlanokSeeder extends Seeder
             $ingatlan['updated_at'] = now();
         }
 
-        DB::table('ingatlanok')->insert($ingatlanok);
+        DB::table('ingatlanoks')->insert($ingatlanok);
     }
 }
