@@ -15,6 +15,6 @@ class Kategoia extends Model
     ];
     public function kategoriak()
     {
-        return $this->hasMany(Kategoria::class, 'id');
+        return $this->hasMany(Ingatlanok::class, 'id');
     }
 }

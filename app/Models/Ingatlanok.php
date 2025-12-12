@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingatlanok extends Model
 {
-        /** @use HasFactory<\Database\Factories\kategoriaFactory> */
-        /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\Database\Factories\kategoriaFactory> */
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
 
     /**
@@ -26,4 +26,9 @@ class Ingatlanok extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function ingatlanok()
+    {
+        return $this->belongsTo(Kategoria::class, 'id');
+    }
 }
