@@ -7,15 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingatlanok extends Model
 {
-    /** @use HasFactory<\Database\Factories\kategoriaFactory> */
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
         'kategoria_id',
         'leiras',
@@ -27,8 +20,8 @@ class Ingatlanok extends Model
         'updated_at',
     ];
 
-    public function ingatlanok()
+    public function kategoria()
     {
-        return $this->belongsTo(Kategoria::class, 'id');
+        return $this->belongsTo(Kategoria::class, 'kategoria_id');
     }
 }

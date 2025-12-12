@@ -13,7 +13,9 @@ class KategoriaController extends Controller
      */
     public function index()
     {
-        $kategoria = Kategoria::with(kategoriak())->get();
+        // 'ingatlanok' itt a Kategoria modellben definiált kapcsolat neve
+        $kategoria = Kategoria::with('ingatlanok')->get();
+
         return response()->json($kategoria);    
     }
 

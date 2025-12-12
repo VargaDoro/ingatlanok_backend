@@ -7,14 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategoria extends Model
 {
-    /** @use HasFactory<\Database\Factories\KategoriaFactory> */
     use HasFactory;
 
-    protected $fillable = [
-        'kategoria_nev'
-    ];
-    public function kategoriak()
+    protected $fillable = ['kategoria_nev'];
+
+    public function ingatlanok()
     {
-        return $this->hasMany(Kategoria::class, 'id');
+        return $this->hasMany(Ingatlanok::class, 'kategoria_id');
     }
 }
