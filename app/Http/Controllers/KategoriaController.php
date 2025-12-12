@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorekategoriaRequest;
 use App\Http\Requests\UpdatekategoriaRequest;
-use App\Models\kategoria;
+use App\Models\Kategoria;
 
 class KategoriaController extends Controller
 {
@@ -13,8 +13,8 @@ class KategoriaController extends Controller
      */
     public function index()
     {
-        $categories = kategoria::with(kategoriak())->get();
-        return response()->json($categories);
+        $kategoria = Kategoria::with(kategoriak())->get();
+        return response()->json($kategoria);
 }
 
     }
@@ -25,7 +25,13 @@ class KategoriaController extends Controller
     public function store(StorekategoriaRequest $request)
     {
         $validated = $request->validate([
-        'kategoria_nev' => 'required|in:'ház', 'lakás', 'építési telek', 'garázs', 'mezőgazdasági épület', 'ipari ingatlan''])
+        'kategoria_nev' => 'required|in:'ház', 'lakás', 'építési telek', 'garázs', 'mezőgazdasági épület', 'ipari ingatlan''
+    ]);
+
+         $validated = Kategoria::create([ 
+
+            'kategoria_nev' => $validated['kategoria_nev'], 
+        ]);
         
     }
 

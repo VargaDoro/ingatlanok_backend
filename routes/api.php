@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\IngatlanokController;
+use App\Http\Controllers\KategoriaController;
+use App\Models\Kategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,7 @@ Route::get('/ingatlanok/{id}', [IngatlanokController::class, 'show']);
 Route::post('/ingatlanok', [IngatlanokController::class, 'storage']);
 Route::put('/ingatlanok/{id}', [IngatlanokController::class, 'update']);
 Route::delete('/ingatlanok/{id}', [IngatlanokController::class, 'destroy']);
+
+
+Route::get('/kategoriak', [KategoriaController::class, 'index']);
+Route::post('/kategoriak', [KategoriaController::class, 'store']);
