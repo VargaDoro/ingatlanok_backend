@@ -22,7 +22,7 @@ class KategoriaSeeder extends Seeder
         ];
 
         foreach ($kategoriak as $kat) {
-            DB::table('kategoria')->insert([
+            DB::table('kategorias')->insert([
                 'kategoria_nev' => $kat,
                 'created_at' => now(),
                 'updated_at' => now(),
