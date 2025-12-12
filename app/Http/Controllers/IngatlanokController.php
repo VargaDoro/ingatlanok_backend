@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreIngatlanokRequest;
 use App\Http\Requests\UpdateIngatlanokRequest;
 use App\Models\Ingatlanok;
+use Illuminate\Http\Client\ResponseSequence;
 
 class IngatlanokController extends Controller
 {
@@ -13,7 +14,7 @@ class IngatlanokController extends Controller
      */
     public function index()
     {
-        //
+        return Ingatlanok::all();
     }
 
     /**
@@ -21,30 +22,38 @@ class IngatlanokController extends Controller
      */
     public function store(StoreIngatlanokRequest $request)
     {
-        //
+        $ingatlan = new Ingatlanok();
+        $ingatlan = fill($request->all());
+        $ingatlan = save();
+        return response()->json($ingatlan, 200);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Ingatlanok $ingatlanok)
+    public function show(String $id)
     {
-        //
+        return Ingatlanok::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateIngatlanokRequest $request, Ingatlanok $ingatlanok)
+    public function update(UpdateIngatlanokRequest $request, String $id)
     {
-        //
+        $ingatlan = Ingatlanok::fing($id);
+        $ingatlan = fill($request->all());
+        $ingatlan = save();
+        return response()->json($book,200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ingatlanok $ingatlanok)
+    public function destroy(String $id)
     {
-        //
+        $ingatlan = Ingatlanok::find($id);
+        $ingatlan->delete();
+        return response()->json(NULL,200);
     }
 }
