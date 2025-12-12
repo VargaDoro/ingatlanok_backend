@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingatlanok extends Model
 {
-        /** @use HasFactory<\Database\Factories\KategoiaFactory> */
+        /** @use HasFactory<\Database\Factories\kategoriaFactory> */
         /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
 
@@ -17,7 +17,7 @@ class Ingatlanok extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'kategoia_id',
+        'kategoria_id',
         'leiras',
         'datum',
         'tehermentes',

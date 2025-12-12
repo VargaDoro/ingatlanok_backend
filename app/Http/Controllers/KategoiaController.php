@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreKategoiaRequest;
-use App\Http\Requests\UpdateKategoiaRequest;
-use App\Models\Kategoia;
+use App\Http\Requests\StorekategoriaRequest;
+use App\Http\Requests\UpdatekategoriaRequest;
+use App\Models\kategoria;
 
-class KategoiaController extends Controller
+class KategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Kategoia::with(kategoriak())->get();
+        $categories = kategoria::with(kategoriak())->get();
         return response()->json($categories);
 }
 
@@ -22,7 +22,7 @@ class KategoiaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKategoiaRequest $request)
+    public function store(StorekategoriaRequest $request)
     {
         $validated = $request->validate([
         'kategoria_nev' => 'required|in:'ház', 'lakás', 'építési telek', 'garázs', 'mezőgazdasági épület', 'ipari ingatlan''])
@@ -32,7 +32,7 @@ class KategoiaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kategoia $kategoia)
+    public function show(kategoria $kategoria)
     {
         //
     }
@@ -40,7 +40,7 @@ class KategoiaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKategoiaRequest $request, Kategoia $kategoia)
+    public function update(UpdatekategoriaRequest $request, kategoria $kategoria)
     {
         //
     }
@@ -48,7 +48,7 @@ class KategoiaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kategoia $kategoia)
+    public function destroy(kategoria $kategoria)
     {
         //
     }

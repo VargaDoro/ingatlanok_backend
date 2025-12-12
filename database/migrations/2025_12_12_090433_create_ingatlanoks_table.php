@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingatlanoks', function (Blueprint $table) {
+        Schema::create('ingatlanok', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("kategoia_id");
+            $table->bigInteger("kategoria_id");
             $table->text("leiras");
             $table->timestamp("datum")->date_time(now());
             $table->boolean("tehermentes")->default(true);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingatlanoks');
+        Schema::dropIfExists('ingatlanok');
     }
 };

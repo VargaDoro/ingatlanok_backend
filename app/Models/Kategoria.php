@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kategoia extends Model
+class Kategoria extends Model
 {
-    /** @use HasFactory<\Database\Factories\KategoiaFactory> */
+    /** @use HasFactory<\Database\Factories\KategoriaFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -15,6 +15,6 @@ class Kategoia extends Model
     ];
     public function kategoriak()
     {
-        return $this->hasMany(Kategoia::class, 'id');
+        return $this->hasMany(Kategoria::class, 'id');
     }
 }
