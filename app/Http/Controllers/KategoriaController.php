@@ -13,25 +13,18 @@ class KategoriaController extends Controller
      */
     public function index()
     {
-        $kategoria = Kategoria::with(kategoriak())->get();
-        return response()->json($kategoria);
-}
-
+        return Kategoria::all();   
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorekategoriaRequest $request)
+    public function store(StoreKategoriaRequest $request)
     {
-        $validated = $request->validate([
-        'kategoria_nev' => 'required|in:'ház', 'lakás', 'építési telek', 'garázs', 'mezőgazdasági épület', 'ipari ingatlan''
-    ]);
-
-         $validated = Kategoria::create([ 
-
-            'kategoria_nev' => $validated['kategoria_nev'], 
-        ]);
+        $kategoria = new Kategoria();
+        $kategoria = fill($request->all());
+        $kategoria = save();
+        return response()->json($kategoria, 200);
         
     }
 
@@ -40,7 +33,7 @@ class KategoriaController extends Controller
      */
     public function show(kategoria $kategoria)
     {
-        //
+        return Kategoria::find($id);
     }
 
     /**
