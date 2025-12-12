@@ -14,7 +14,8 @@ class IngatlanokController extends Controller
      */
     public function index()
     {
-        return Ingatlanok::all();
+       $ingatlan = Ingatlanok::with(ingatlanok())->get();
+        return response()->json($ingatlan); 
     }
 
     /**
